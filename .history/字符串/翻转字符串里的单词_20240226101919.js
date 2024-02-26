@@ -74,5 +74,4 @@ function removeExtraSpaces1(str) {
       str[slowIndex++] = str[fastIndex++];
     }
   }
-  str.length = str[slowIndex - 1] === " " ? slowIndex - 1 : slowIndex;
 }

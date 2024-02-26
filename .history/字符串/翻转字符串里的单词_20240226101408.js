@@ -59,20 +59,3 @@ function reverse(strArr, start, end) {
 }
 
 console.log(reverseWords("Let's     take LeetCode contest"));
-
-function removeExtraSpaces1(str) {
-  let fastIndex = 0;
-  let slowIndex = 0;
-
-  while (fastIndex < str.length) {
-    if (
-      str[fastIndex] === " " &&
-      (fastIndex === 0 || str[fastIndex - 1] === " ")
-    ) {
-      fastIndex++;
-    } else {
-      str[slowIndex++] = str[fastIndex++];
-    }
-  }
-  str.length = str[slowIndex - 1] === " " ? slowIndex - 1 : slowIndex;
-}
