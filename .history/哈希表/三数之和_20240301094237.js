@@ -50,7 +50,7 @@ function threeSum1(nums) {
   for (let i = 0; i < len; i++) {
     let iNum = nums[i];
     if (iNum > 0) return res;
-    if (iNum === nums[i - 1]) continue;
+    if (iNum === nums[i + 1]) continue;
     let l = i + 1;
     let r = len - 1;
     while (l < r) {
@@ -69,5 +69,4 @@ function threeSum1(nums) {
       }
     }
   }
-  return res;
 }

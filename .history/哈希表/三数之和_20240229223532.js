@@ -43,31 +43,31 @@ function threeSum(nums) {
 }
 
 function threeSum1(nums) {
-  let res = [];
+  let result = [];
   nums.sort((a, b) => a - b);
-  if (nums[0] > 0) return [];
   let len = nums.length;
+  if (nums[0] > 0) return [];
   for (let i = 0; i < len; i++) {
-    let iNum = nums[i];
-    if (iNum > 0) return res;
-    if (iNum === nums[i - 1]) continue;
     let l = i + 1;
     let r = len - 1;
+    let iNums = nums[i];
+    if (iNums > 0) return result;
+    if (iNums === nums[i - 1]) continue;
     while (l < r) {
-      let lNum = nums[l];
+      let lNums = nums[l];
       let rNums = nums[r];
-      let total = iNum + lNum + rNums;
+      let total = iNums + lNums + rNums;
 
       if (total > 0) r--;
       else if (total < 0) l++;
       else {
-        res.push([iNum, lNum, rNums]);
-        while (l < r && lNum === nums[l + 1]) l++;
+        result.push([iNums, lNums, rNums]);
+        while (l < r && lNums === nums[l + 1]) l++;
         while (l < r && rNums === nums[r - 1]) r--;
         l++;
         r--;
       }
     }
   }
-  return res;
+  return result;
 }

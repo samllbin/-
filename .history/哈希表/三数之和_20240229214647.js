@@ -13,27 +13,27 @@
  * 7. 如果左右指针指向的元素之和等于0，则将当前元素、左指针指向的元素、右指针指向的元素组成
  */
 function threeSum(nums) {
-  let result = [];
+  let result = [],
+    len = nums.length;
   nums.sort((a, b) => a - b);
   if (nums[0] > 0) return [];
-  let len = nums.length;
   for (let i = 0; i < len; i++) {
+    let iNums = nums[i];
     let l = i + 1;
     let r = len - 1;
-    let iNum = nums[i];
-    if (iNum > 0) return result;
-    if (iNum === nums[i - 1]) continue;
+    if (iNums > 0) return result;
+    if (iNums === nums[i - 1]) continue;
     while (l < r) {
-      let lNum = nums[l];
+      let lNums = nums[l];
       let rNums = nums[r];
-      let total = iNum + lNum + rNums;
+      let totalSum = iNums + lNums + rNums;
 
-      if (total > 0) r--;
-      else if (total < 0) l++;
+      if (totalSum > 0) r--;
+      else if (totalSum < 0) l++;
       else {
-        result.push([iNum, lNum, rNums]);
-        while (l < r && lNum === nums[l + 1]) l++;
-        while (l < r && rNums === nums[r - 1]) r--;
+        result.push([iNums, lNums, rNums]);
+        while (l < r && nums[l + 1] === lNums) l++;
+        while (l < r && nums[r - 1] === rNums) r--;
         l++;
         r--;
       }
@@ -41,33 +41,32 @@ function threeSum(nums) {
   }
   return result;
 }
-
 function threeSum1(nums) {
-  let res = [];
+  let result = [];
   nums.sort((a, b) => a - b);
-  if (nums[0] > 0) return [];
   let len = nums.length;
+  if (nums[0] > 0) return [];
   for (let i = 0; i < len; i++) {
-    let iNum = nums[i];
-    if (iNum > 0) return res;
-    if (iNum === nums[i - 1]) continue;
     let l = i + 1;
     let r = len - 1;
+    let iNums = nums[i];
+    if (iNums > 0) return result;
+    if ((iNums = nums[i - 1])) continue;
     while (l < r) {
-      let lNum = nums[l];
+      let lNums = nums[l];
       let rNums = nums[r];
-      let total = iNum + lNum + rNums;
+      let tota = iNums + lNums + rNums;
 
       if (total > 0) r--;
       else if (total < 0) l++;
       else {
-        res.push([iNum, lNum, rNums]);
-        while (l < r && lNum === nums[l + 1]) l++;
-        while (l < r && rNums === nums[r - 1]) r--;
+        result.push([iNums, nums[l], nums[r]]);
+        while (nums[l] === nums[l + 1]) l++;
+        while (nums[r] === nums[r - 1]) r--;
         l++;
         r--;
       }
     }
   }
-  return res;
+  return result;
 }
