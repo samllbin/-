@@ -26,8 +26,12 @@ var generateMatrix = function (n) {
 
     startX++;
     startY++;
+    number++;
   }
   if (n % 2 === 1) {
     result[mid][mid] = count;
   }
+  return result;
 };
+
+console.log(generateMatrix(6));

@@ -44,24 +44,23 @@ function generateMatrix1(n) {
   while (loop--) {
     let row = startX;
     let clo = startY;
-    for (; clo < n - count; clo++) {
-      result[row][clo] = number++;
-    }
     for (; row < n - count; row++) {
       result[row][clo] = number++;
     }
-    for (; clo > startY; clo--) {
+    for (; clo < n - count; clo++) {
       result[row][clo] = number++;
     }
     for (; row > startX; row--) {
       result[row][clo] = number++;
     }
-
+    for (; clo > startY; clo--) {
+      result[row][clo] = number++;
+    }
     startX++;
     startY++;
     count++;
   }
-  if (n % 2 === 1) {
+  if (n % 2 === 0) {
     result[n / 2][n / 2] = number;
   }
   return result;

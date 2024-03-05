@@ -26,8 +26,24 @@ var generateMatrix = function (n) {
 
     startX++;
     startY++;
+    number++;
   }
   if (n % 2 === 1) {
-    result;
+    result[mid][mid] = count;
   }
+  return result;
 };
+
+console.log(generateMatrix(6));
+
+function generateMatrix1(n) {
+  let loop = Math.floor(n / 2);
+  let startX = 0,
+    startY = 0;
+  let number = 1;
+  let count = 1;
+  let result = new Array(n).fill(0).map(() => new Array(n).fill(0))
+  while(loop--){
+    for()
+  }
+}
